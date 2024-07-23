@@ -1,0 +1,10 @@
+class Solution:
+    def insert(self, i: List[List[int]], n: List[int]) -> List[List[int]]:
+        r = []
+        for s,e in sorted(i + [n]):
+            if r and r[-1][1] >= s:
+                r[-1][1] = max(r[-1][1], e)
+            else:
+                r.append([s,e])
+
+        return r
